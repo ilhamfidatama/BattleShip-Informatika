@@ -17,8 +17,8 @@ public class InGame extends javax.swing.JFrame {
     
     public InGame() {
         initComponents();
-        int posisiX=400;
-        int posisiY=100;
+        int posisiX=0;
+        int posisiY=0;
         int size=35;
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -26,10 +26,10 @@ public class InGame extends javax.swing.JFrame {
                 papan[i][j].setBackground(Color.white);
                 papan[i][j].setSize(size, size);
                 papan[i][j].setLocation(posisiX, posisiY);
-                this.add(papan[i][j]);
+                player1.add(papan[i][j]);
                 posisiX+=35;
             }
-            posisiX=400;
+            posisiX=0;
             posisiY+=35;
         }
         this.setVisible(true);
@@ -44,25 +44,39 @@ public class InGame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        papan1 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        player1 = new javax.swing.JPanel();
         bgMenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        papan1.setLayout(null);
+        jPanel1.setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/warfare/battleship.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
-        papan1.add(jButton1);
-        jButton1.setBounds(30, 20, 31, 209);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(10, 10, 40, 210);
 
-        getContentPane().add(papan1);
-        papan1.setBounds(30, 50, 340, 350);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(20, 140, 210, 340);
+
+        player1.setLayout(null);
+        getContentPane().add(player1);
+        player1.setBounds(430, 130, 350, 350);
 
         bgMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         getContentPane().add(bgMenu);
@@ -71,6 +85,14 @@ public class InGame extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1100, 650));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1KeyPressed
 
     /**
      * @param args the command line arguments
@@ -87,6 +109,7 @@ public class InGame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgMenu;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel papan1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel player1;
     // End of variables declaration//GEN-END:variables
 }
