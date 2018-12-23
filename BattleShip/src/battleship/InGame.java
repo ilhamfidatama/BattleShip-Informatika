@@ -5,23 +5,34 @@
  */
 package battleship;
 
-import javax.swing.JPanel;
+import java.awt.Color;
+import javax.swing.JButton;
+
 /**
  *
  * @author ASUS R.O.G
  */
 public class InGame extends javax.swing.JFrame {
-    private JPanel temp;
-    JPanel self;
-    /**
-     * Creates new form LoadingGame
-     */
+    private JButton[][] papan = new JButton[10][10];
+    
     public InGame() {
-        PapanGame pg = new PapanGame();
-        pg.setVisible(true);
-        pg.setSize(400, 400);
-        add(pg);
         initComponents();
+        int posisiX=400;
+        int posisiY=100;
+        int size=35;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                papan[i][j] = new JButton();
+                papan[i][j].setBackground(Color.white);
+                papan[i][j].setSize(size, size);
+                papan[i][j].setLocation(posisiX, posisiY);
+                this.add(papan[i][j]);
+                posisiX+=35;
+            }
+            posisiX=400;
+            posisiY+=35;
+        }
+        this.setVisible(true);
     }
 
     /**
@@ -33,11 +44,25 @@ public class InGame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        papan1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         bgMenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
+
+        papan1.setLayout(null);
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/warfare/battleship.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        papan1.add(jButton1);
+        jButton1.setBounds(30, 20, 31, 209);
+
+        getContentPane().add(papan1);
+        papan1.setBounds(30, 50, 340, 350);
 
         bgMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         getContentPane().add(bgMenu);
@@ -61,5 +86,7 @@ public class InGame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgMenu;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel papan1;
     // End of variables declaration//GEN-END:variables
 }
