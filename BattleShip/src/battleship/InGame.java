@@ -18,8 +18,9 @@ public class InGame extends javax.swing.JFrame {
      */
     public InGame() {
         PapanGame pg = new PapanGame();
+        pg.setVisible(true);
+        pg.setSize(400, 400);
         add(pg);
-        
         initComponents();
     }
 
