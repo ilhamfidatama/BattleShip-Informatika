@@ -33,8 +33,6 @@ public class PapanGame extends JFrame{
                 papan[i][j].setBackground(Color.white);
             }
         }
-        
-        setSize(300, 300);
     }
     
 }

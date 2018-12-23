@@ -17,10 +17,9 @@ public class InGame extends javax.swing.JFrame {
      * Creates new form LoadingGame
      */
     public InGame() {
-//        PapanGame pg = new PapanGame();
-//        pg.setVisible(true);
-//        pg.setLocation(100, 100);
-//        pg.setAlwaysOnTop(true);
+        PapanGame pg = new PapanGame();
+        add(pg);
+        
         initComponents();
     }
 
