@@ -18,6 +18,23 @@ public class InGame extends javax.swing.JFrame {
     
     public InGame() {
         initComponents();
+        setPapan();
+        setKapal();
+    }
+    
+    public void setKapal(){
+        Kapal ship = new Kapal();
+        for (int i = 0; i < 5; i++) {
+            papanKapal.add(ship.kapal[i]);
+        }
+        ship.kapal[0].setLocation(0, 0);
+        ship.kapal[1].setLocation(40, 0);
+        ship.kapal[2].setLocation(115, 0);
+        ship.kapal[3].setLocation(155, 0);
+        ship.kapal[4].setLocation(195, 0);
+    }
+    
+    public void setPapan(){ //membuat papan kotak
         int posisiX=0;
         int posisiY=0;
         int size=35;
@@ -51,8 +68,7 @@ public class InGame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        papanKapal = new javax.swing.JPanel();
         player1 = new javax.swing.JPanel();
         player2 = new javax.swing.JPanel();
         bgMenu = new javax.swing.JLabel();
@@ -61,25 +77,17 @@ public class InGame extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        jPanel1.setLayout(null);
-
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/warfare/battleship.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jPanel1.add(jButton1);
-        jButton1.setBounds(0, 0, 40, 210);
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 140, 210, 340);
+        papanKapal.setLayout(null);
+        getContentPane().add(papanKapal);
+        papanKapal.setBounds(20, 370, 240, 220);
 
         player1.setLayout(null);
         getContentPane().add(player1);
-        player1.setBounds(290, 140, 350, 350);
+        player1.setBounds(310, 30, 350, 350);
 
         player2.setLayout(null);
         getContentPane().add(player2);
-        player2.setBounds(720, 140, 350, 350);
+        player2.setBounds(730, 30, 350, 350);
 
         bgMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         getContentPane().add(bgMenu);
@@ -103,8 +111,7 @@ public class InGame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgMenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel papanKapal;
     private javax.swing.JPanel player1;
     private javax.swing.JPanel player2;
     // End of variables declaration//GEN-END:variables
