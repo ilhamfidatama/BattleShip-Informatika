@@ -14,7 +14,6 @@ import javax.swing.JButton;
  */
 public class InGame extends javax.swing.JFrame {
     private JButton[][] papan1 = new JButton[10][10];
-    private JButton[][] papan2 = new JButton[10][10];
     
     public InGame() {
         initComponents();
@@ -46,12 +45,6 @@ public class InGame extends javax.swing.JFrame {
                 papan1[i][j].setSize(size, size);
                 papan1[i][j].setLocation(posisiX, posisiY);
                 player1.add(papan1[i][j]);
-                
-                papan2[i][j] = new JButton();
-                papan2[i][j].setBackground(Color.white);
-                papan2[i][j].setSize(size, size);
-                papan2[i][j].setLocation(posisiX, posisiY);
-                player2.add(papan2[i][j]);
                 posisiX+=35;
             }
             posisiX=0;
@@ -68,26 +61,35 @@ public class InGame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        keluar = new javax.swing.JButton();
         papanKapal = new javax.swing.JPanel();
         player1 = new javax.swing.JPanel();
-        player2 = new javax.swing.JPanel();
         bgMenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
+        keluar.setBackground(new java.awt.Color(255, 0, 0));
+        keluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/TOMBOL/keluarGame.png"))); // NOI18N
+        keluar.setBorder(null);
+        keluar.setBorderPainted(false);
+        keluar.setMargin(new java.awt.Insets(2, 8, 2, 8));
+        keluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keluarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(keluar);
+        keluar.setBounds(996, 10, 90, 30);
+
         papanKapal.setLayout(null);
         getContentPane().add(papanKapal);
-        papanKapal.setBounds(20, 370, 240, 220);
+        papanKapal.setBounds(20, 110, 240, 220);
 
         player1.setLayout(null);
         getContentPane().add(player1);
-        player1.setBounds(310, 30, 350, 350);
-
-        player2.setLayout(null);
-        getContentPane().add(player2);
-        player2.setBounds(730, 30, 350, 350);
+        player1.setBounds(450, 100, 350, 350);
 
         bgMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         getContentPane().add(bgMenu);
@@ -96,6 +98,10 @@ public class InGame extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1100, 650));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_keluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,8 +117,8 @@ public class InGame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgMenu;
+    private javax.swing.JButton keluar;
     private javax.swing.JPanel papanKapal;
     private javax.swing.JPanel player1;
-    private javax.swing.JPanel player2;
     // End of variables declaration//GEN-END:variables
 }
