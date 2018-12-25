@@ -40,4 +40,8 @@ public class Kapal{
             return null;
         }
     }
+    
+    private void kapalMouseClicked(java.awt.event.MouseEvent evt){
+        System.out.println(kapal.length);
+    }
 }

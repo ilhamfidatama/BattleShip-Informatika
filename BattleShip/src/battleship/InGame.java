@@ -18,19 +18,6 @@ public class InGame extends javax.swing.JFrame {
     public InGame() {
         initComponents();
         setPapan();
-        setKapal();
-    }
-    
-    public void setKapal(){
-        Kapal ship = new Kapal();
-        for (int i = 0; i < 5; i++) {
-            papanKapal.add(ship.kapal[i]);
-        }
-        ship.kapal[0].setLocation(0, 0);
-        ship.kapal[1].setLocation(40, 0);
-        ship.kapal[2].setLocation(115, 0);
-        ship.kapal[3].setLocation(155, 0);
-        ship.kapal[4].setLocation(195, 0);
     }
     
     public void setPapan(){ //membuat papan kotak
@@ -62,8 +49,10 @@ public class InGame extends javax.swing.JFrame {
     private void initComponents() {
 
         keluar = new javax.swing.JButton();
-        papanKapal = new javax.swing.JPanel();
         player1 = new javax.swing.JPanel();
+        cruiser = new javax.swing.JButton();
+        carier = new javax.swing.JButton();
+        battleship = new javax.swing.JButton();
         bgMenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,13 +72,37 @@ public class InGame extends javax.swing.JFrame {
         getContentPane().add(keluar);
         keluar.setBounds(996, 10, 90, 30);
 
-        papanKapal.setLayout(null);
-        getContentPane().add(papanKapal);
-        papanKapal.setBounds(20, 110, 240, 220);
-
         player1.setLayout(null);
+
+        cruiser.setBackground(new java.awt.Color(255, 255, 255));
+        cruiser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/warfare/cruiser.png"))); // NOI18N
+        cruiser.setBorder(null);
+        cruiser.setBorderPainted(false);
+        cruiser.setContentAreaFilled(false);
+        cruiser.setFocusPainted(false);
+        player1.add(cruiser);
+        cruiser.setBounds(105, 0, 35, 140);
+
+        carier.setBackground(new java.awt.Color(255, 255, 255));
+        carier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/warfare/carier.png"))); // NOI18N
+        carier.setBorder(null);
+        carier.setBorderPainted(false);
+        carier.setContentAreaFilled(false);
+        carier.setFocusPainted(false);
+        player1.add(carier);
+        carier.setBounds(35, 0, 70, 210);
+
+        battleship.setBackground(new java.awt.Color(255, 255, 255));
+        battleship.setIcon(new javax.swing.ImageIcon(getClass().getResource("/warfare/battleship.png"))); // NOI18N
+        battleship.setBorder(null);
+        battleship.setBorderPainted(false);
+        battleship.setContentAreaFilled(false);
+        battleship.setFocusPainted(false);
+        player1.add(battleship);
+        battleship.setBounds(0, 0, 35, 210);
+
         getContentPane().add(player1);
-        player1.setBounds(450, 100, 350, 350);
+        player1.setBounds(110, 190, 350, 350);
 
         bgMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Background.jpg"))); // NOI18N
         getContentPane().add(bgMenu);
@@ -102,7 +115,7 @@ public class InGame extends javax.swing.JFrame {
     private void keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_keluarActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -116,9 +129,11 @@ public class InGame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton battleship;
     private javax.swing.JLabel bgMenu;
+    private javax.swing.JButton carier;
+    private javax.swing.JButton cruiser;
     private javax.swing.JButton keluar;
-    private javax.swing.JPanel papanKapal;
     private javax.swing.JPanel player1;
     // End of variables declaration//GEN-END:variables
 }
