@@ -5,7 +5,10 @@
  */
 package battleship;
 
+import java.io.IOException;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -87,9 +90,14 @@ public class MenuGame extends javax.swing.JFrame {
     }//GEN-LAST:event_keluarActionPerformed
 
     private void mulaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mulaiActionPerformed
-        InGame ig = new InGame();
-        this.dispose();
-        ig.setVisible(true);
+        try {
+            Permainan play = new Permainan();
+            play.start();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuGame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        dispose();
+        
     }//GEN-LAST:event_mulaiActionPerformed
 
     /**
