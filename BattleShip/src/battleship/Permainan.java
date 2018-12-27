@@ -38,11 +38,8 @@ public class Permainan implements Runnable, KeyListener{
     private BufferStrategy bs; //agar game tidak patah-patah
     
     int timingEnemy=1000; //kecepatan dibentuknya objek
-    int timingSpecialfish=2500; 
     long nowEnemy = System.nanoTime(); //waktu untuk perpindahan posisi objek
-    long nowSpecialfish = System.nanoTime(); 
     long timerEnemy = 1000000; //pergerakan objek
-    long timerSpecialfish = 1000000;
     
     public Permainan()throws IOException{
         frame = new JFrame("BattleShip");
@@ -62,7 +59,7 @@ public class Permainan implements Runnable, KeyListener{
         canvas.setFocusable(true);
         frame.add(canvas);
         canvas.addKeyListener(this);
-        latar = new ImageIcon(this.getClass().getResource("/image/latar.gif")).getImage(); // NOI18N
+        latar = new ImageIcon(this.getClass().getResource("/image/Background.jpg")).getImage(); // NOI18N
         pemain = new Pemain();
     }
     
@@ -100,7 +97,6 @@ public class Permainan implements Runnable, KeyListener{
     
     private void update(){ //method untuk pergerakan ikan
         long waktu = (System.nanoTime()-nowEnemy)/timerEnemy;
-        long waktu1 = (System.nanoTime()-nowSpecialfish)/timerSpecialfish;
         
         for(int i=0; i<musuh.size(); i++){ //untuk gerakin ikan musuh
              musuh.get(i).gerak();

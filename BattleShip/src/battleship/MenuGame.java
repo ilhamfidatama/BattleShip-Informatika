@@ -6,6 +6,7 @@
 package battleship;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,7 +46,7 @@ public class MenuGame extends javax.swing.JFrame {
 
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(100, 360, 41, 16);
+        jLabel1.setBounds(100, 360, 34, 14);
 
         judul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/TOMBOL/judul.png"))); // NOI18N
         getContentPane().add(judul);
@@ -61,6 +62,11 @@ public class MenuGame extends javax.swing.JFrame {
         keluar.setBounds(462, 280, 176, 60);
 
         papanSkor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/TOMBOL/papanSkor.png"))); // NOI18N
+        papanSkor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                papanSkorActionPerformed(evt);
+            }
+        });
         getContentPane().add(papanSkor);
         papanSkor.setBounds(580, 180, 250, 60);
 
@@ -99,6 +105,12 @@ public class MenuGame extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_mulaiActionPerformed
+
+    private void papanSkorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_papanSkorActionPerformed
+        ScoreBoard sc = new ScoreBoard();
+        sc.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_papanSkorActionPerformed
 
     /**
      * @param args the command line arguments
