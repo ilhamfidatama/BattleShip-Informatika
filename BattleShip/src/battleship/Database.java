@@ -64,4 +64,13 @@ public class Database {
     public ResultSet getRS(){
         return rs;
     }
+    
+    public void tutupDatabase(){
+        try {
+            stat.close();
+            koneksi.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

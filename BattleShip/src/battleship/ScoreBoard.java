@@ -5,6 +5,7 @@
  */
 package battleship;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -79,6 +80,7 @@ public class ScoreBoard extends javax.swing.JFrame {
         nama = new javax.swing.JLabel();
         point = new javax.swing.JLabel();
         bgMenu = new javax.swing.JLabel();
+        kembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -105,9 +107,23 @@ public class ScoreBoard extends javax.swing.JFrame {
         getContentPane().add(bgMenu);
         bgMenu.setBounds(0, 0, 1100, 650);
 
+        kembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kembaliActionPerformed(evt);
+            }
+        });
+        getContentPane().add(kembali);
+        kembali.setBounds(10, 10, 190, 60);
+
         setSize(new java.awt.Dimension(1100, 650));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
+        MenuGame mg = new MenuGame();
+        mg.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_kembaliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,6 +163,7 @@ public class ScoreBoard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgMenu;
+    private javax.swing.JButton kembali;
     private javax.swing.JLabel nama;
     private javax.swing.JPanel panel1;
     private javax.swing.JLabel point;

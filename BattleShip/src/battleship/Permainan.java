@@ -28,7 +28,7 @@ public class Permainan implements Runnable, KeyListener{
     public static final int lebar=650;
     public static int point=0;
     private Thread thread;
-    public static boolean jalan=true;
+    public static boolean jalan;
     private final Canvas canvas;
     private final JFrame frame;
     private final Image latar;
@@ -42,6 +42,7 @@ public class Permainan implements Runnable, KeyListener{
     long timerEnemy = 1000000; //pergerakan objek
     
     public Permainan()throws IOException{
+        jalan=true;
         frame = new JFrame("BattleShip");
         frame.setSize(panjang, lebar);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -89,7 +90,9 @@ public class Permainan implements Runnable, KeyListener{
             }
         }
         
-        //setelah kalah harus kemana???
+        Kalah lose = new Kalah();
+        lose.setVisible(true);
+        frame.dispose();
         
     }
     
