@@ -90,15 +90,15 @@ public class Pemain implements Game{
     @Override
     public void draw(Graphics g) {
         g.drawImage(pemain, posisiX, posisiY, null);
-        if (posisiAwal){
-            g.drawImage(pemain, posisiX, posisiY, null);
-        }
-        if (setKiri){
-            g.drawImage(pemain, posisiX+51, posisiY, -51, 43, null);
-        }
-        if (setKanan){
-            g.drawImage(pemain, posisiX, posisiY, null);
-        }
+//        if (posisiAwal){
+//            g.drawImage(pemain, posisiX, posisiY, null);
+//        }
+//        if (setKiri){
+//            g.drawImage(pemain, posisiX+51, posisiY, -51, 43, null);
+//        }
+//        if (setKanan){
+//            g.drawImage(pemain, posisiX, posisiY, null);
+//        }
     }
     
 }

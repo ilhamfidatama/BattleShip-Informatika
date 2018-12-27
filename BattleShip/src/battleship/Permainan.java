@@ -28,7 +28,7 @@ public class Permainan implements Runnable, KeyListener{
     public static final int lebar=650;
     public static int point=0;
     private Thread thread;
-    private boolean jalan;
+    public static boolean jalan=true;
     private final Canvas canvas;
     private final JFrame frame;
     private final Image latar;
@@ -59,7 +59,7 @@ public class Permainan implements Runnable, KeyListener{
         canvas.setFocusable(true);
         frame.add(canvas);
         canvas.addKeyListener(this);
-        latar = new ImageIcon(this.getClass().getResource("/image/Background.jpg")).getImage(); // NOI18N
+        latar = new ImageIcon(this.getClass().getResource("/image/latar.gif")).getImage(); // NOI18N
         pemain = new Pemain();
     }
     
@@ -73,8 +73,7 @@ public class Permainan implements Runnable, KeyListener{
 
     @Override
     public void run() {
-        int FPS = 60;
-        double timePerTick = 1000000000/FPS;
+        double timePerTick = 1000000000/60;
         double delta = 0;
         long now;
         long lastTime = System.nanoTime();
@@ -89,6 +88,9 @@ public class Permainan implements Runnable, KeyListener{
                 delta --;
             }
         }
+        
+        //setelah kalah harus kemana???
+        
     }
     
     private void addMusuh(Musuh m){
@@ -105,7 +107,7 @@ public class Permainan implements Runnable, KeyListener{
         if (waktu>timingEnemy){ //kecepatan untuk buat objek
             addMusuh(new Musuh());
             nowEnemy = System.nanoTime();
-            timingEnemy = timingEnemy-2;
+//            timingEnemy = timingEnemy-2;
         }
         
         for(int i = 0; i < musuh.size();i++){ // remove arraylist dari ikan musuh

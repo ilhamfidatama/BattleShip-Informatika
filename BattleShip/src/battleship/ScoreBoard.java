@@ -38,12 +38,8 @@ public class ScoreBoard extends javax.swing.JFrame {
         int i=0;
         initComponents();
         try {
-            Class.forName(jdbc);
-            koneksi = DriverManager.getConnection(url, user, password);
-            stat = koneksi.createStatement();
-            
-            rs = stat.executeQuery(sql);
-            
+            Database db = new Database(sql);
+            rs = db.getRS();
             while(rs.next()){
                 nama.setText(rs.getString("nama"));
                 nama.setLocation(posisiX, posisiY);
@@ -56,8 +52,6 @@ public class ScoreBoard extends javax.swing.JFrame {
                 posisiX=100;
                 i++;
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ScoreBoard.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(ScoreBoard.class.getName()).log(Level.SEVERE, null, ex);
         }
