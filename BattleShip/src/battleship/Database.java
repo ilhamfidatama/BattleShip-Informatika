@@ -28,15 +28,16 @@ public class Database {
     private ResultSet rs;
     private boolean statusTambah;
     
-    public Database(String nama, int point){ //untuk update data
+    public Database(String nama, int point){ //untuk menambah data
         String sql="INSERT INTO pemain (nama, point) VALUES ('%s', %d)";
         sql=String.format(sql, nama, point);
         try {
-            Class.forName("update BattleShip");
+            Class.forName(jdbc);
             koneksi = DriverManager.getConnection(url, user, password);
             stat = koneksi.createStatement();
             
             statusTambah = stat.execute(sql);
+            tutupDatabase();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -24,8 +24,8 @@ import javax.swing.JFrame;
  * @author ASUS R.O.G
  */
 public class Permainan implements Runnable, KeyListener{
-    public static final int panjang=1100;
-    public static final int lebar=650;
+    private static final int panjang=1100;
+    private static final int lebar=650;
     public static int point=0;
     private Thread thread;
     public static boolean jalan;
@@ -37,9 +37,9 @@ public class Permainan implements Runnable, KeyListener{
     ArrayList<Musuh> musuh = new ArrayList<Musuh>();
     private BufferStrategy bs; //agar game tidak patah-patah
     
-    int timingEnemy=1000; //kecepatan dibentuknya objek
-    long nowEnemy = System.nanoTime(); //waktu untuk perpindahan posisi objek
-    long timerEnemy = 1000000; //pergerakan objek
+    private int timingEnemy=1000; //kecepatan dibentuknya objek
+    private long nowEnemy = System.nanoTime(); //waktu untuk perpindahan posisi objek
+    private long timerEnemy = 1000000; //pergerakan objek
     
     public Permainan()throws IOException{
         jalan=true;
@@ -91,6 +91,8 @@ public class Permainan implements Runnable, KeyListener{
         }
         
         Kalah lose = new Kalah();
+        Pemain.posisiX=0;
+        Pemain.posisiY=250;
         lose.setVisible(true);
         frame.dispose();
         
@@ -116,7 +118,7 @@ public class Permainan implements Runnable, KeyListener{
         for(int i = 0; i < musuh.size();i++){ // remove arraylist dari ikan musuh
             if(musuh.get(i).posisiX <= -50){
                 musuh.remove(i);
-                point++;
+                point+=8;
             }
         }
     }

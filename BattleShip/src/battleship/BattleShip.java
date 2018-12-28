@@ -19,7 +19,7 @@ public class BattleShip {
         try {
             for (int i = 0; i <= 100; i++) {
                 Thread.sleep(10); //jangan lupa diganti kalau seluruhnya sudah selesai
-                lg.proses.setText("LOADING DATA "+Integer.toString(i)+"%");
+                lg.proses.setText("LOAD&ING DATA "+Integer.toString(i)+"%");
                 lg.loading.setValue(i);
             }
         } catch (InterruptedException ex) {

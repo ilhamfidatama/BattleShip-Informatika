@@ -5,6 +5,7 @@
  */
 package battleship;
 
+import java.awt.Font;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Statement;
@@ -27,30 +28,32 @@ public class ScoreBoard extends javax.swing.JFrame {
     private static final String jdbc = "com.mysql.jdbc.Driver";
     private static final String user = "root";
     private static final String password = "";
-    private final String sql = "SELECT * FROM pemain ORDER BY point DESC LIMIT 1";
+    private final String sql = "SELECT * FROM pemain ORDER BY point DESC LIMIT 3";
     
     private static Connection koneksi;
     private static Statement stat;
     private static ResultSet rs;
     
-    private int posisiX = 100;
+    private int posisiX = 20;
     private int posisiY = 30;
     public ScoreBoard() {
         int i=0;
         initComponents();
+        
         try {
             Database db = new Database(sql);
             rs = db.getRS();
             while(rs.next()){
-                nama.setText(rs.getString("nama"));
-                nama.setLocation(posisiX, posisiY);
-                nama.setSize(150, 30);
-                posisiX+=160;
-                point.setText(rs.getString("point"));
-                point.setLocation(posisiX, posisiY);
-                point.setSize(150, 30);
-                posisiY+=40;
-                posisiX=100;
+                if (i==0) {
+                    nama.setText(rs.getString("nama"));
+                    point.setText(rs.getString("point"));
+                }else if (i==1) {
+                    nama1.setText(rs.getString("nama"));
+                    point1.setText(rs.getString("point"));
+                }else if (i==2) {
+                    nama2.setText(rs.getString("nama"));
+                    point2.setText(rs.getString("point"));
+                }
                 i++;
             }
         } catch (SQLException ex) {
@@ -76,37 +79,23 @@ public class ScoreBoard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        kembali = new javax.swing.JButton();
         panel1 = new javax.swing.JPanel();
         nama = new javax.swing.JLabel();
+        nama1 = new javax.swing.JLabel();
+        nama2 = new javax.swing.JLabel();
         point = new javax.swing.JLabel();
+        point1 = new javax.swing.JLabel();
+        point2 = new javax.swing.JLabel();
         bgMenu = new javax.swing.JLabel();
-        kembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        panel1.setLayout(null);
-
-        nama.setBackground(new java.awt.Color(255, 255, 255));
-        nama.setFont(new java.awt.Font("Bebas Neue", 0, 40)); // NOI18N
-        nama.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        nama.setLabelFor(panel1);
-        panel1.add(nama);
-        nama.setBounds(20, 30, 230, 70);
-
-        point.setBackground(new java.awt.Color(255, 255, 255));
-        point.setFont(new java.awt.Font("Bebas Neue", 0, 40)); // NOI18N
-        panel1.add(point);
-        point.setBounds(310, 30, 230, 70);
-
-        getContentPane().add(panel1);
-        panel1.setBounds(220, 120, 570, 370);
-
-        bgMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/scoreboard.jpg"))); // NOI18N
-        getContentPane().add(bgMenu);
-        bgMenu.setBounds(0, 0, 1100, 650);
-
+        kembali.setFont(new java.awt.Font("Rosewood Std Regular", 3, 36)); // NOI18N
+        kembali.setForeground(new java.awt.Color(0, 0, 255));
+        kembali.setText("KEMBALI");
         kembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kembaliActionPerformed(evt);
@@ -114,6 +103,57 @@ public class ScoreBoard extends javax.swing.JFrame {
         });
         getContentPane().add(kembali);
         kembali.setBounds(10, 10, 190, 60);
+
+        panel1.setBackground(new java.awt.Color(255, 255, 255));
+        panel1.setFocusable(false);
+        panel1.setOpaque(false);
+        panel1.setLayout(null);
+
+        nama.setBackground(new java.awt.Color(255, 255, 255));
+        nama.setFont(new java.awt.Font("Bebas Neue", 0, 50)); // NOI18N
+        nama.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        nama.setLabelFor(panel1);
+        panel1.add(nama);
+        nama.setBounds(20, 20, 230, 70);
+
+        nama1.setBackground(new java.awt.Color(255, 255, 255));
+        nama1.setFont(new java.awt.Font("Bebas Neue", 0, 50)); // NOI18N
+        nama1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        nama1.setLabelFor(panel1);
+        panel1.add(nama1);
+        nama1.setBounds(20, 90, 230, 70);
+
+        nama2.setBackground(new java.awt.Color(255, 255, 255));
+        nama2.setFont(new java.awt.Font("Bebas Neue", 0, 50)); // NOI18N
+        nama2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        nama2.setLabelFor(panel1);
+        panel1.add(nama2);
+        nama2.setBounds(20, 180, 230, 70);
+
+        point.setBackground(new java.awt.Color(255, 255, 255));
+        point.setFont(new java.awt.Font("Bebas Neue", 0, 50)); // NOI18N
+        point.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        panel1.add(point);
+        point.setBounds(270, 20, 230, 70);
+
+        point1.setBackground(new java.awt.Color(255, 255, 255));
+        point1.setFont(new java.awt.Font("Bebas Neue", 0, 50)); // NOI18N
+        point1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        panel1.add(point1);
+        point1.setBounds(270, 90, 230, 70);
+
+        point2.setBackground(new java.awt.Color(255, 255, 255));
+        point2.setFont(new java.awt.Font("Bebas Neue", 0, 50)); // NOI18N
+        point2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        panel1.add(point2);
+        point2.setBounds(270, 180, 230, 70);
+
+        getContentPane().add(panel1);
+        panel1.setBounds(300, 180, 500, 290);
+
+        bgMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/scoreboard.jpg"))); // NOI18N
+        getContentPane().add(bgMenu);
+        bgMenu.setBounds(0, 0, 1100, 650);
 
         setSize(new java.awt.Dimension(1100, 650));
         setLocationRelativeTo(null);
@@ -165,7 +205,11 @@ public class ScoreBoard extends javax.swing.JFrame {
     private javax.swing.JLabel bgMenu;
     private javax.swing.JButton kembali;
     private javax.swing.JLabel nama;
+    private javax.swing.JLabel nama1;
+    private javax.swing.JLabel nama2;
     private javax.swing.JPanel panel1;
     private javax.swing.JLabel point;
+    private javax.swing.JLabel point1;
+    private javax.swing.JLabel point2;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  *
  * @author ASUS R.O.G
  */
-public class Pemain implements Game{
+public class Pemain extends Game{
     public Image pemain;
     public boolean kiri, kanan, atas, bawah; //untuk menentukan arah
     public static int posisiX=0, posisiY=250;

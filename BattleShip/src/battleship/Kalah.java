@@ -19,6 +19,7 @@ public class Kalah extends javax.swing.JFrame {
     public Kalah() {
         initComponents();
         skor.setHorizontalAlignment(SwingConstants.CENTER);
+        skor.setText(Integer.toString(Permainan.point));
     }
 
     /**
@@ -31,8 +32,8 @@ public class Kalah extends javax.swing.JFrame {
     private void initComponents() {
 
         skor = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        namaPemain = new javax.swing.JTextField();
+        simpan = new javax.swing.JButton();
         bgLoading = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,25 +41,26 @@ public class Kalah extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         skor.setFont(new java.awt.Font("Bebas Neue", 1, 100)); // NOI18N
+        skor.setForeground(new java.awt.Color(255, 255, 255));
         skor.setFocusable(false);
         skor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(skor);
         skor.setBounds(410, 200, 300, 150);
 
-        jTextField1.setFont(new java.awt.Font("Bebas Neue", 3, 70)); // NOI18N
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(385, 370, 350, 100);
+        namaPemain.setFont(new java.awt.Font("Bebas Neue", 3, 70)); // NOI18N
+        getContentPane().add(namaPemain);
+        namaPemain.setBounds(385, 370, 350, 100);
 
-        jButton1.setBackground(new java.awt.Color(0, 255, 0));
-        jButton1.setFont(new java.awt.Font("Bebas Neue", 3, 30)); // NOI18N
-        jButton1.setText("SIMPAN");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        simpan.setBackground(new java.awt.Color(0, 255, 0));
+        simpan.setFont(new java.awt.Font("Bebas Neue", 3, 30)); // NOI18N
+        simpan.setText("SIMPAN");
+        simpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                simpanActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(490, 500, 150, 50);
+        getContentPane().add(simpan);
+        simpan.setBounds(490, 500, 150, 50);
 
         bgLoading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/kalah.jpg"))); // NOI18N
         getContentPane().add(bgLoading);
@@ -68,11 +70,14 @@ public class Kalah extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
+        String nama = namaPemain.getText();
+        int score = Integer.parseInt(skor.getText());
+        Database db = new Database(nama, score);
         MenuGame mg = new MenuGame();
         mg.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_simpanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,8 +117,8 @@ public class Kalah extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgLoading;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField namaPemain;
+    private javax.swing.JButton simpan;
     private javax.swing.JLabel skor;
     // End of variables declaration//GEN-END:variables
 }

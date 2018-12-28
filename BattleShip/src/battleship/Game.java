@@ -11,7 +11,7 @@ import java.awt.Graphics;
  *
  * @author ASUS R.O.G
  */
-public interface Game {
+public abstract class Game {
     public abstract void gerak();
     public abstract void draw(Graphics g);
 }
