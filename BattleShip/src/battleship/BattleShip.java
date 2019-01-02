@@ -9,16 +9,13 @@ import java.util.logging.Logger;
  */
 public class BattleShip {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         LoadingGame lg = new LoadingGame();
         lg.setVisible(true);
         
         try {
             for (int i = 0; i <= 100; i++) {
-                Thread.sleep(10); //jangan lupa diganti kalau seluruhnya sudah selesai
+                Thread.sleep(10);
                 lg.proses.setText("LOAD&ING DATA "+Integer.toString(i)+"%");
                 lg.loading.setValue(i);
             }

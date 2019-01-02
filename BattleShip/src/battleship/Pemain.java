@@ -71,9 +71,9 @@ public class Pemain extends Game{
             posisiX=0;
         }
        
-        if (posisiX>=1100){
+        if (posisiX>=890){
             kanan=false;
-            posisiX=1100;
+            posisiX=890;
         }
        
         if (posisiY<=0){
@@ -81,24 +81,15 @@ public class Pemain extends Game{
             posisiY=0;
         }
        
-        if (posisiY>=650){
+        if (posisiY>=615){
             bawah=false;
-            posisiY=650;
+            posisiY=615;
         }
     }
 
     @Override
     public void draw(Graphics g) {
         g.drawImage(pemain, posisiX, posisiY, null);
-//        if (posisiAwal){
-//            g.drawImage(pemain, posisiX, posisiY, null);
-//        }
-//        if (setKiri){
-//            g.drawImage(pemain, posisiX+51, posisiY, -51, 43, null);
-//        }
-//        if (setKanan){
-//            g.drawImage(pemain, posisiX, posisiY, null);
-//        }
     }
     
 }
